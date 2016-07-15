@@ -1,0 +1,4 @@
+Size_X:8
+Size_Y:8
+Number_Of_Rows:8
+Number_Of_Columns:12
