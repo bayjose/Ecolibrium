@@ -42,7 +42,7 @@ public class GuiCircuitboard extends Gui{
     
     public GuiCircuitboard() {
         super((28 * 6), (4 * 6), Game.WIDTH, Game.HEIGHT);
-        this.display = SpriteBinder.loadSprite("circuitboard.png");
+        this.display = SpriteBinder.loadSprite("gui/circuitboard.png");
         this.display.width  = 12 * 64;
         this.display.height  = 12 * 64;
                 

@@ -10,6 +10,7 @@ import Core.Input.Keyboard;
 import Entity.EntityCircuitboard;
 import Entity.EntityManager;
 import Entity.EntityPalmTree;
+import Entity.Grass;
 import Entity.Model.Model;
 import Entity.Player;
 import Graphics.Gui.GuiManager;
@@ -55,7 +56,7 @@ public class Handler {
         
         if(Keyboard.Q){
             if(debounce == false){
-                EntityManager.addEntity(new EntityPalmTree(cam.x+(Game.WIDTH/2), cam.y+(Game.HEIGHT/2)));
+                EntityManager.addEntity(new Grass(cam.x+(Game.WIDTH/2), cam.y+(Game.HEIGHT/2)));
                 debounce = true;
             }
         }else{

@@ -34,7 +34,7 @@ public abstract class Slot extends Gui{
     
     public Slot(int x, int y) {
         super(x, y, 112, 112);
-        this.slot = SpriteBinder.loadSprite("slot.png");
+        this.slot = SpriteBinder.loadSprite("gui/slot.png");
         this.slot.width = this.bounds.width;
         this.slot.height = this.bounds.height;
     }

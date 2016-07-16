@@ -25,6 +25,17 @@ public class Texture {
         this.display = SpriteBinder.loadSprite(imageID);
     }
     
+    public Texture(Point pt, String[] randImage){
+        this.pt = pt;
+        int index = (int)Math.floor(Math.random()*randImage.length);
+        this.display = SpriteBinder.loadSprite(randImage[index]);
+    }
+    
+    public Texture(Point pt, Display image){
+        this.pt = pt;
+        this.display = image;
+    }
+    
     public void render(int x, int y, Graphics g){
         display.render((int)(pt.x + x), (int)(pt.y + y), g, (int)(pt.getTextureRotation()+this.extraRotation), offsetX, offsetY);
     }
@@ -44,5 +55,9 @@ public class Texture {
     public Texture extraRotation(float rot){
         this.extraRotation = rot;
         return this;
+    }
+    
+    public void addRotation(float rot){
+        this.extraRotation+=rot;
     }
 }

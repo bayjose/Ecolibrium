@@ -10,6 +10,7 @@ import Core.Game;
 import Core.Handler;
 import Core.Input.Keyboard;
 import Entity.EntityPalmTree;
+import Entity.Grass;
 import Entity.ItemEntity;
 import Graphics.ColorPixel;
 import Graphics.Display;
@@ -170,6 +171,12 @@ public class World {
                         EntityManager.addEntity(new EntityPalmTree(i * TileConstants.size, j * TileConstants.size));
                     }
                 }
+                if(progress>0.8f){
+                    if(Math.random()>0.85){
+                        EntityManager.addEntity(new Grass(i * TileConstants.size+(int)(Math.random()*TileConstants.size), j * TileConstants.size+(int)(Math.random()*TileConstants.size)));
+                    }
+                }
+                
             }
         }
         System.out.println("Pixel Data written to Tile Data");

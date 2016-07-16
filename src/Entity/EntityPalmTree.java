@@ -53,17 +53,17 @@ public class EntityPalmTree extends Entity{
         };
         
         Texture[] t = new Texture[]{
-            new Texture(p[0], "PalmTreeBase.png").scale(2.0f, 2.0f),
-            new Texture(p[1], "PalmTreeBase.png").scale(1.8f, 1.8f),
-            new Texture(p[2], "PalmTreeBase.png").scale(1.6f, 1.6f),
-            new Texture(p[3], "PalmTreeBase.png").scale(1.4f, 1.4f),
-            new Texture(p[4], "PalmTreeBase.png").scale(1.2f, 1.2f),
-            new Texture(p[5], "PalmTreeBase.png").scale(1.0f, 1.0f),
-            new Texture(p[6], "PalmTreeBase.png").scale(0.8f, 0.8f),
-            new Texture(p[6], "PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(-35.0f),
-            new Texture(p[6], "PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(35.0f),
-            new Texture(p[6], "PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(145.0f),
-            new Texture(p[6], "PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(215.0f),
+            new Texture(p[0], "entity/PalmTreeBase.png").scale(2.0f, 2.0f),
+            new Texture(p[1], "entity/PalmTreeBase.png").scale(1.8f, 1.8f),
+            new Texture(p[2], "entity/PalmTreeBase.png").scale(1.6f, 1.6f),
+            new Texture(p[3], "entity/PalmTreeBase.png").scale(1.4f, 1.4f),
+            new Texture(p[4], "entity/PalmTreeBase.png").scale(1.2f, 1.2f),
+            new Texture(p[5], "entity/PalmTreeBase.png").scale(1.0f, 1.0f),
+            new Texture(p[6], "entity/PalmTreeBase.png").scale(0.8f, 0.8f),
+            new Texture(p[6], "entity/PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(-35.0f),
+            new Texture(p[6], "entity/PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(35.0f),
+            new Texture(p[6], "entity/PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(145.0f),
+            new Texture(p[6], "entity/PalmTreeLeaf.png").scale(3.0f, 3.0f).offset(-80, 0).extraRotation(215.0f),
         };
         
         this.mesh.setVerticies(p);

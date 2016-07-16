@@ -71,10 +71,9 @@ public class Player extends Entity{
 
     @Override
     public void render(Graphics g) {
-        this.display.render(x-Handler.cam.x, y-Handler.cam.y, g);
-        
-//        g2d.dispose();
-//        assets.render(g);
+        if(!Keyboard.bool_0){
+            this.display.render(x-Handler.cam.x, y-Handler.cam.y, g);
+        }
     }
     
 }

@@ -16,6 +16,7 @@ public enum EnumEntity {
     //Nature
     TREE,
     PALM_TREE,
+    GRASS,
     //Animals
     //EntityCore
     MODEL,

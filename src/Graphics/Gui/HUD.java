@@ -70,7 +70,9 @@ public class HUD extends Gui{
         
 //        g.setColor(Color.green);
         
-        this.slots.render(g);
+        if(!Keyboard.bool_0){
+            this.slots.render(g);
+        }
     }
 
     public Container getContainer(){

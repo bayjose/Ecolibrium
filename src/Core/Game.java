@@ -32,8 +32,8 @@ public class Game extends Canvas implements Runnable{
     Thread thread;
     
     public static final String NAME = "Scripting Engine";
-    public static int WIDTH = 1440;
-    public static int HEIGHT = 900;
+    public static int WIDTH = 1280;
+    public static int HEIGHT = 720;
     
     public static float renderRate = 144.0f - 60.0f;
     public static final boolean VSynch = false;

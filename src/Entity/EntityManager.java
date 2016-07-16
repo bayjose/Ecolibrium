@@ -19,13 +19,18 @@ import java.util.LinkedList;
  * @author Bailey
  */
 public class EntityManager {
+    
+    private static int idTotal = 0;
+    
     private static HashMap<String, Entity> entities = new HashMap<String, Entity>();
     private static LinkedList<Entity> toAdd = new LinkedList<Entity>();
     private static LinkedList<String> toRemove = new LinkedList<String>();
     
     public static void addEntity(Entity entity){
         entity.onAdd();
-        entity.setID(StringUtils.genRandomExtension(8));
+//        entity.setID(StringUtils.genRandomExtension(8));
+        entity.setID(idTotal+"");
+        idTotal++;
         toAdd.add(entity);
     }
     
