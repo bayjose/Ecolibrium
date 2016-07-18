@@ -17,6 +17,8 @@ import Graphics.Gui.GuiManager;
 import Graphics.Gui.GuiWorldMap;
 import Graphics.Gui.SpitesheetMaker;
 import Item.MouseItem;
+import Sound.Music;
+import Sound.SoundManager;
 import World.World;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -39,56 +41,43 @@ public class Handler {
     int x = 0;
     int y = 0;
     
-    
+    //Engines and stuff
+    SoundManager soundManager;
+    Music m;
     public void init(){
         player =new Player(Game.WIDTH/2, Game.HEIGHT/2);
         this.world = new World(""+Math.random());
         this.guiManager = new GuiManager();
+        this.soundManager = new SoundManager();
         GuiManager.add("map", new GuiWorldMap());
         EntityManager.addEntity(player);
         EntityManager.addEntity(new EntityCircuitboard(cam.x+(Game.WIDTH/2), cam.y+(Game.HEIGHT/2)));
+        m = new Music("water.wav", this.soundManager.getAudioContext());
+        SoundManager.add(m);
+        SoundManager.add(new Music("wind.wav", this.soundManager.getAudioContext()));
     }
     
     public void tick(){
         this.guiManager.tick();
         EntityManager.tickAllEntities();
         MouseItem.tick();
-        
         if(Keyboard.Q){
             if(debounce == false){
-                EntityManager.addEntity(new Grass(cam.x+(Game.WIDTH/2), cam.y+(Game.HEIGHT/2)));
+                m.pause();
                 debounce = true;
             }
         }else{
             debounce = false;
         }
         if(Keyboard.E){
-            EntityManager.addEntity(new EntityCircuitboard(cam.x+(Game.WIDTH/2), cam.y+(Game.HEIGHT/2)));
-            
-//            this.world = new World(""+Math.random());
+            m.terminate();
         }
-        
-//          int speed = 4;
-//        if(Keyboard.SHIFT){
-//            speed = 26;
-//        }
-//        
+ 
         if(Keyboard.T){
             GuiManager.openThis(new SpitesheetMaker("Fonts/main/font.png"));
             System.out.println("Here");
         }
-//        if(Keyboard.A){
-//            this.x-=speed;
-//        }
-//        if(Keyboard.S){
-//            this.y+=speed;
-//        }
-//        if(Keyboard.D){
-//            this.x+=speed;
-//        }
-//        
-//        Handler.cam.x = x;
-//        Handler.cam.y = y;
+        SoundManager.tick();
     }
     
     public void render(Graphics g){
@@ -101,8 +90,6 @@ public class Handler {
         g.translate(-Game.WIDTH/2, -Game.HEIGHT/2);
         //Entity
         EntityManager.renderAllEntities(g);
-//        g.setColor(Color.yellow);
-//        g.drawRect(Game.getScreen().x, Game.getScreen().y, Game.getScreen().width, Game.getScreen().height);
         //Ui
         this.guiManager.render(g);
         MouseItem.render(g);

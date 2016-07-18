@@ -5,11 +5,15 @@
  */
 package Entity;
 
+import Core.Handler;
 import Entity.Model.Link;
 import Entity.Model.Mesh;
 import Entity.Model.Point;
 import Entity.Model.Texture;
 import Graphics.Display;
+import PhysicsEngine.RigidUtils;
+import PhysicsEngine.Vector3D;
+import World.TileConstants;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -29,8 +33,12 @@ public class EntityPalmTree extends Entity{
     public EntityPalmTree(int x, int y) {
         super(x, y, EnumEntity.PALM_TREE);
         //testing
-        super.setAlwaysRender(true);
-        
+//        super.setAlwaysRender(true);
+        //fix render box
+        this.renderOffsetX = -256;
+        this.renderOffsetY = -512;
+        this.renderWidth = 512;
+        this.renderHeight = 600;
         this.mesh = new Mesh();
         
         Point[] p = new Point[]{
@@ -100,7 +108,7 @@ public class EntityPalmTree extends Entity{
 
     @Override
     public void render(Graphics g) {
-        this.mesh.render(this.getBounds().x, this.getBounds().y, g);
+        this.mesh.render(this.getBounds().x+this.getBounds().width/2, this.getBounds().y+this.getBounds().height/2, g);
     }
     
 }

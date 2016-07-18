@@ -10,16 +10,11 @@ import Base.BayScript;
 import Core.Input.Keyboard;
 import Core.Input.MouseInput;
 import Core.Input.MousePositionLocator;
-import Entity.EntityManager;
 import Graphics.font.FontBook;
-import java.awt.AlphaComposite;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RadialGradientPaint;
 import java.awt.Rectangle;
-import java.awt.geom.Point2D;
 import java.awt.image.BufferStrategy;
 
 /**
@@ -84,7 +79,6 @@ public class Game extends Canvas implements Runnable{
     
     public void init(){
         this.createBufferStrategy(2);
-
         this.handler = new Handler();
         this.handler.init();
         //all utilities like fonts
@@ -94,8 +88,6 @@ public class Game extends Canvas implements Runnable{
         this.addMouseMotionListener(new MousePositionLocator());
         
         BayScript.invoke(this.getClass());
-//        BayScript.addScript("math.txt");
-        
         
     }
     

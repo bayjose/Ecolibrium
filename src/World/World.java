@@ -22,6 +22,7 @@ import Utils.StringUtils;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.LinkedList;
 import java.util.Random;
 
 /**
@@ -309,5 +310,23 @@ public class World {
                 }
             }
         }
+    }
+    
+    public Tile[] getTilesOnScreen(){
+        LinkedList<Tile> t = new LinkedList<Tile>();
+        for(int j = 0; j<(Game.HEIGHT/TileConstants.size)+2; j++){
+            for(int i = 0; i<(Game.WIDTH/TileConstants.size)+2; i++){
+                if((i+(int)Math.ceil(Handler.cam.x/TileConstants.size))<this.width&&(i+(int)Math.ceil(Handler.cam.x/TileConstants.size))>=0){
+                    if((j+(int)Math.ceil(Handler.cam.y/TileConstants.size))<this.height&&(j+(int)Math.ceil(Handler.cam.y/TileConstants.size))>=0){ 
+                        t.add(this.tiles[i+(int)Math.ceil(Handler.cam.x/TileConstants.size)][j+(int)Math.floor(Handler.cam.y/TileConstants.size)]);
+                    }
+                }
+            }
+        }
+        Tile[] out = new Tile[t.size()];
+        for(int i = 0; i < t.size(); i++){
+            out[i] = t.get(i);
+        }
+        return out;
     }
 }

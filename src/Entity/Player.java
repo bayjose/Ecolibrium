@@ -10,12 +10,8 @@ import Core.Handler;
 import Core.Input.Keyboard;
 import Graphics.SpriteSheet;
 import World.TileConstants;
-import java.awt.AlphaComposite;
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RadialGradientPaint;
-import java.awt.geom.Point2D;
+import java.awt.Rectangle;
 
 /**
  *
@@ -52,19 +48,29 @@ public class Player extends Entity{
             speed = this.sprintSpeed;
         }
         
+
+        Rectangle rect = this.getBounds();
+        int deltaX = 0;
+        int deltaY = 0;
+
         if(Keyboard.W){
-            Handler.cam.y-=speed;
+            deltaY-=speed;
         }
         if(Keyboard.A){
-            Handler.cam.x-=speed;
+            deltaX-=speed;
         }
         if(Keyboard.S){
-            Handler.cam.y+=speed;
+            deltaY+=speed;
         }
         if(Keyboard.D){
-            Handler.cam.x+=speed;
+            deltaX+=speed;
         }
-        
+
+        Handler.cam.x+=deltaX;
+        Handler.cam.y+=deltaY;
+
+
+
         this.x = Handler.cam.x+Game.WIDTH/2;
         this.y = Handler.cam.y+Game.HEIGHT/2;
     }

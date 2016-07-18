@@ -87,12 +87,14 @@ public class EntityManager {
         boolean flag = false;
         for(Entity entity: EntityManager.entities.values()){
             if(entity!=null){
-                if(entity.getBounds().intersects(Game.getScreen()) || entity.shouldAlwaysRender()){
+                if(entity.getRenderBox().intersects(Game.getScreen()) || entity.shouldAlwaysRender()){
                     entity.render(g);
                 }
                 if(Keyboard.bool_2){
                     g.setColor(Color.ORANGE);
                     g.drawRect(entity.getBounds().x, entity.getBounds().y, entity.getBounds().width, entity.getBounds().height);
+                    g.setColor(Color.PINK);
+                    g.drawRect(entity.getRenderBox().x, entity.getRenderBox().y, entity.getRenderBox().width, entity.getRenderBox().height);
                 }
             }else{
                 flag = true;
@@ -108,6 +110,21 @@ public class EntityManager {
             if(entity.getBounds().intersects(Game.getScreen())){
                 if(entity.getBounds().intersects(rect)){
                     return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    //for more specific exclusion
+    //used in the player class
+    public static boolean intersects(Rectangle rect, String id){
+        for(Entity entity: EntityManager.entities.values()){
+            if(!entity.getID().equals(id)){
+                if(entity.getBounds().intersects(Game.getScreen())){
+                    if(entity.getBounds().intersects(rect)){
+                        return true;
+                    }
                 }
             }
         }
